@@ -13,7 +13,7 @@ Includes: planning & estimation, documentation structure, ticket management, dat
 
 **Essence**: Know how to estimate (×2 +10%), structure work (Why/What/How/When), define realistic scope, aim for impact (outcome) rather than production (output), and maintain professional quality standards.
 
-### Techincal collaboration
+### Technical collaboration
 
 Includes: efficiency vs effectiveness, technical documentation & architecture, GitHub & version control, collective code ownership, centralization vs fragmentation, tool mastery, architecture & technical debt, review & team blocking
 
