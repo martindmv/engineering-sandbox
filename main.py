@@ -1,9 +1,13 @@
 # main.py
 """To run this, you need to pip install openfoodfacts"""
 
+import google.generativeai as genai
 import openfoodfacts
 
 api = openfoodfacts.API(user_agent="MySchoolProject/1.0 (demerdjievm99@mail.com)")
+
+genai.configure(api_key="AIzaSyCTsQ3FUsPANS-tRS1GKU26pqIVEFe5SLU")
+model = genai.GenerativeModel("gemini-2.5-flash-lite")
 
 
 def main():
@@ -15,7 +19,6 @@ def main():
         nutriscoreAnalyze(product)
 
         # type of product is dict
-        print(product)
 
 
 def nutriscoreAnalyze(product):
@@ -26,8 +29,18 @@ def nutriscoreAnalyze(product):
         print("\n To be consumed with moderation\n")
     elif nutriscore in ["d", "e"]:
         print("\n NOT SAFE\n")
+        AIResponse(product)
+
     else:
         print(" Nutriscore not applicable ")
+
+
+def AIResponse(product):
+    product_name = product["product_name"]
+    response = model.generate_content(
+        f"The following product has a Nutri-score of d or e: {product_name}. Give me an alternative to this product which would be safer to consume. I need a very brief response."
+    )
+    print(response.text)
 
 
 def getProduct(code):
